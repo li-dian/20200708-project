@@ -1,0 +1,82 @@
+1.架构搭建
+    1.1.springcloud
+        consumer,provider,feign,hystrix,eureka,zuul
+        大型的分布式项目:
+            qy-109110-project:父工程(pom)
+                只是管理jar包，没有实际的意义，将来打包上线的也只是一个外壳而已
+                需要的jar包:
+            !!!qy-109110-project-common:公共的工程(jar)
+                utils，枚举，静态常量
+                String result = redis.set(key, value);
+                if("OK".equals(result.toUpperCase())) {
+
+                }
+                这个OK就作为硬编码存在到项目中("魔法值")
+                如果项目中出现了大量的硬编码就会造成不方便我后期的维护，项目中不能出现硬编码
+             qy-109110-project-config:配置工程(jar)
+                项目所用到的中间件的配置
+                    redis
+                    ES
+                    ftp
+             qy-109110-project-eureka-management:pom
+                qy-109110-project-eureka-7081:jar
+                qy-109110-project-eureka-7082:jar
+                qy-109110-project-eureka-7083:jar
+             qy-109110-project-consumer-management:pom(父工程)
+                qy-109110-project-consumer-backup:只能写后台
+                qy-109110-project-consumer....
+             qy-109110-project-provider-management:pom(父工程)
+                如果不考虑负载均衡，一个consumer就要对应一个provider
+             qy-109110-project-zuul:jar
+             qy-109110-project-management:核心工程(pom)
+                qy-109110-project-model:jar
+                qy-109110-project-mapper:jar
+                qy-109110-project-service:jar
+                qy-109110-project-api:jar
+
+        1.2.依赖关系(解耦)
+            qy-109110-project-common
+                绝对不能有任何依赖
+
+            qy-109110-project-config
+                需要依赖于--->qy-109110-project-common
+
+            qy-109110-project-eureka-management
+                绝对不能出现依赖
+
+            qy-109110-project-consumer-management
+                consumer调用provider很正常
+                restful
+                feign
+                需要依赖于qy-109110-project-api(feign)
+
+            qy-109110-project-provider-management
+                需要依赖qy-109110-project-service
+                不可以依赖qy-109110-project-config
+                    也就是说所有的redis，ES，FTP都在这里完成
+                    必须要把业务写进controller
+                这种依赖是不科学的，所有业务都必须要在service层完成，controller这一层只做跳转
+
+            qy-109110-project-model
+                不需要依赖于任何东西
+
+            qy-109110-project-mapper
+                需要依赖于qy-109110-project-model
+
+            qy-109110-project-service
+                需要依赖于qy-109110-project-mapper
+                还需要依赖于qy-109110-project-config
+
+            qy-109110-project-api
+                List<Book> selectAllBooks();
+                需要依赖qy-109110-project-model
+
+            qy-109110-project-provider-management
+                依赖于qy-109110-project-common
+
+
+
+
+
+
+
