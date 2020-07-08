@@ -27,7 +27,7 @@ public class BaseController {
      * @description
      *      登录成功
      *      使用系统消息
-     * @param []
+     * @param
      * @date 2020/7/8
      * @return com.aaa.lee.base.ResultData
      * @throws
@@ -44,7 +44,7 @@ public class BaseController {
      * @description
      *      登录成功
      *      自定义返回消息
-     * @param []
+     * @param
      * @date 2020/7/8
      * @return com.aaa.lee.base.ResultData
      * @throws
@@ -61,7 +61,7 @@ public class BaseController {
      * @description
      *      登录成功
      *      返回数据信息，使用系统消息
-     * @param []
+     * @param
      * @date 2020/7/8
      * @return com.aaa.lee.base.ResultData
      * @throws
@@ -79,7 +79,7 @@ public class BaseController {
      * @description
      *      登录成功
      *      返回数据信息，自定义消息
-     * @param []
+     * @param
      * @date 2020/7/8
      * @return com.aaa.lee.base.ResultData
      * @throws
@@ -96,7 +96,7 @@ public class BaseController {
      * @author Seven Lee
      * @description
      *      登录失败，使用系统消息
-     * @param []
+     * @param
      * @date 2020/7/8
      * @return com.aaa.lee.base.ResultData
      * @throws
@@ -112,7 +112,7 @@ public class BaseController {
      * @author Seven Lee
      * @description
      *      登录失败，使用系统消息，详细解释说明
-     * @param []
+     * @param
      * @date 2020/7/8
      * @return com.aaa.lee.base.ResultData
      * @throws
