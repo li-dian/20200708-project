@@ -125,8 +125,28 @@ public class BaseController {
         return resultData;
     }
 
-    // TODO 代码未完善123
 
+    /**
+     * @author Seven Lee
+     * @description
+     *      登录失败，自定义消息
+     *      详细解释说明
+     *
+     *
+     *      测试上传 keepm796
+     * @param
+     * @date 2020/7/8
+     * @return com.aaa.lee.base.ResultData
+     * @throws
+     **/
+    protected ResultData loginFailed(String clde,String datail) {
+        ResultData resultData = new ResultData();
+        resultData.setCode(clde);
+        resultData.setMsg(LOGIN_FAILED.getMsg());
+        resultData.setDetail(datail);
+        return resultData;
+    }
 
+    //TODO 没写完
 
 }
