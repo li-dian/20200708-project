@@ -1,6 +1,8 @@
 package com.aaa.base;
 
 import static com.aaa.status.LoginStatus.*;
+import static com.aaa.status.OperationStatus.FAILED;
+import static com.aaa.status.OperationStatus.SUCCESS;
 
 /**
  * @Company AAA软件教育
@@ -125,6 +127,27 @@ public class BaseController {
         return resultData;
     }
 
+    /**
+     * 操作成功，返回系统消息
+     * @return
+     */
+    protected ResultData operationSuccess(){
+        ResultData resultData = new ResultData();
+        resultData.setCode(SUCCESS.getCode());
+        resultData.setMsg(SUCCESS.getMsg());
+        return resultData;
+    }
+
+    /**
+     * 操作失败，返回系统消息
+     * @return
+     */
+    protected ResultData operationFailed(){
+        ResultData resultData = new ResultData();
+        resultData.setCode(FAILED.getCode());
+        resultData.setMsg(FAILED.getMsg());
+        return resultData;
+    }
     // TODO 代码未完善，记得补充
 
 
