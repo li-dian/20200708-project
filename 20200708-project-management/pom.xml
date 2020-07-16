@@ -18,5 +18,11 @@
         <module>20200708-project-service</module>
     </modules>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>com.aaa</groupId>
+            <artifactId>20200708-project-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>
