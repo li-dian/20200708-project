@@ -157,6 +157,20 @@ public abstract class BaseService<T> {
     }
 
     /**
+     * 查询集合，分页查询
+     * @param t
+     * @param pageNo
+     * @param pageSize
+     * @return
+     */
+    public PageInfo<T> selectListByPage(T t, Integer pageNo, Integer pageSize) {
+        PageHelper.startPage(pageNo, pageSize);
+        List<T> select = mapper.select(t);
+        PageInfo<T> pageInfo = new PageInfo<T>(select);
+        return pageInfo;
+    }
+
+    /**
      * Map转换实体类型
      * @param map
      * @return
