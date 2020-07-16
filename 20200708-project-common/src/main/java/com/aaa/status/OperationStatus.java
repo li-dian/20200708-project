@@ -5,7 +5,11 @@ package com.aaa.status;
  * @date 2020/7/9 15:11
  */
 public enum OperationStatus {
-
+    /**
+     * @author LiDian
+     * @createtime 2020/7/15 19:23
+     * @desc    操作状态码
+     **/
     SUCCESS("1","操作成功"),
     FAILED("2","操作失败"),
     DELETE_OPERATION("3","删除操作"),
