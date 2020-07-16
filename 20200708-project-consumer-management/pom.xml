@@ -9,6 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
+    <modules>
+        <module>20200715-project-consumer-backup</module>
+    </modules>
     <artifactId>20200708-project-consumer-management</artifactId>
 
     <dependencies>
