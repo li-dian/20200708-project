@@ -16,13 +16,19 @@ public class Map2BeanUtils {
     private Map2BeanUtils() {
 
     }
-    //高性能Java实例化工具类
+    /**
+     * 高性能Java实例化工具类
+     */
     private final static Objenesis OBJENESIS = new ObjenesisStd(true);
-    //使用String效率太低，使用StringBuffer虽然效率提高了，但是相对于StringBuilder来说效率还是低
+    /**
+     * 使用String效率太低，使用StringBuffer虽然效率提高了，但是相对于StringBuilder来说效率还是低
+     */
     private final static StringBuilder STRING_BUILDER = new StringBuilder();
-    //高性能反射工具类中，高性能反射字节集
-    //ConcurrentHashMap:在线程中运转，这个Map会在当前线程中出现
-    //而且线程和线程具有隔离性，这里的Map就不会被其他的线程所干扰
+    /**
+     * 高性能反射工具类中，高性能反射字节集
+     * ConcurrentHashMap:在线程中运转，这个Map会在当前线程中出现
+     * 而且线程和线程具有隔离性，这里的Map就不会被其他的线程所干扰
+     */
     private final static ConcurrentHashMap<Class, MethodAccess> CONCURRENT_HASH_MAP =
             new ConcurrentHashMap(16);
 
