@@ -1,5 +1,6 @@
 package com.aaa.base;
 
+import static com.aaa.status.OperationStatus.*;
 import static com.aaa.status.LoginStatus.*;
 
 /**
@@ -23,15 +24,10 @@ import static com.aaa.status.LoginStatus.*;
 public class BaseController {
 
     /**
-     * @author Seven Lee
-     * @description
      *      登录成功
      *      使用系统消息
-     * @param []
-     * @date 2020/7/8
-     * @return com.aaa.lee.base.ResultData
-     * @throws
-    **/
+     * @return
+     */
     protected ResultData loginSuccess() {
         ResultData resultData = new ResultData();
         resultData.setCode(LOGIN_SUCCESS.getCode());
@@ -40,15 +36,11 @@ public class BaseController {
     }
 
     /**
-     * @author Seven Lee
-     * @description
      *      登录成功
      *      自定义返回消息
-     * @param []
-     * @date 2020/7/8
-     * @return com.aaa.lee.base.ResultData
-     * @throws
-     **/
+     * @param msg
+     * @return
+     */
     protected ResultData loginSuccess(String msg) {
         ResultData resultData = new ResultData();
         resultData.setCode(LOGIN_SUCCESS.getCode());
@@ -57,15 +49,11 @@ public class BaseController {
     }
 
     /**
-     * @author Seven Lee
-     * @description
      *      登录成功
      *      返回数据信息，使用系统消息
-     * @param []
-     * @date 2020/7/8
-     * @return com.aaa.lee.base.ResultData
-     * @throws
-     **/
+     * @param data
+     * @return
+     */
     protected ResultData loginSuccess(Object data) {
         ResultData resultData = new ResultData();
         resultData.setCode(LOGIN_SUCCESS.getCode());
@@ -75,15 +63,12 @@ public class BaseController {
     }
 
     /**
-     * @author Seven Lee
-     * @description
      *      登录成功
      *      返回数据信息，自定义消息
-     * @param []
-     * @date 2020/7/8
-     * @return com.aaa.lee.base.ResultData
-     * @throws
-     **/
+     * @param msg
+     * @param data
+     * @return
+     */
     protected ResultData loginSuccess(String msg, Object data) {
         ResultData resultData = new ResultData();
         resultData.setCode(LOGIN_SUCCESS.getCode());
@@ -93,14 +78,9 @@ public class BaseController {
     }
 
     /**
-     * @author Seven Lee
-     * @description
      *      登录失败，使用系统消息
-     * @param []
-     * @date 2020/7/8
-     * @return com.aaa.lee.base.ResultData
-     * @throws
-    **/
+     * @return
+     */
     protected ResultData loginFailed() {
         ResultData resultData = new ResultData();
         resultData.setCode(LOGIN_FAILED.getCode());
@@ -109,19 +89,62 @@ public class BaseController {
     }
 
     /**
-     * @author Seven Lee
-     * @description
-     *      登录失败，使用系统消息，详细解释说明
-     * @param []
-     * @date 2020/7/8
-     * @return com.aaa.lee.base.ResultData
-     * @throws
-     **/
+     * 登录失败，使用系统消息，详细解释说明
+     * @param detail
+     * @return
+     */
     protected ResultData loginFailed(String detail) {
         ResultData resultData = new ResultData();
         resultData.setCode(LOGIN_FAILED.getCode());
         resultData.setMsg(LOGIN_FAILED.getMsg());
         resultData.setDetail(detail);
+        return resultData;
+    }
+
+    /**
+     * 操作成功，返回系统消息
+     * @return
+     */
+    protected ResultData operationSuccess() {
+        ResultData resultData = new ResultData();
+        resultData.setCode(SUCCESS.getCode());
+        resultData.setMsg(SUCCESS.getMsg());
+        return resultData;
+    }
+
+    /**
+     * 操作成功，返回系统消息
+     * @param data
+     * @return
+     */
+    protected ResultData operationSuccess(Object data) {
+        ResultData resultData = new ResultData();
+        resultData.setCode(SUCCESS.getCode());
+        resultData.setMsg(SUCCESS.getMsg());
+        resultData.setData(data);
+        return resultData;
+    }
+
+    /**
+     * 操作失败，返回系统消息
+     * @return
+     */
+    protected ResultData operationFailed() {
+        ResultData resultData = new ResultData();
+        resultData.setCode(FAILED.getCode());
+        resultData.setMsg(FAILED.getMsg());
+        return resultData;
+    }
+
+    /**
+     * 操作失败，返回系统消息
+     * @param msg
+     * @return
+     */
+    protected ResultData operationFailed(String msg) {
+        ResultData resultData = new ResultData();
+        resultData.setCode(FAILED.getCode());
+        resultData.setMsg(msg);
         return resultData;
     }
 
